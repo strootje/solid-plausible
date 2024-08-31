@@ -12,9 +12,9 @@ const PlausibleContext = createContext<Accessor<ContextType | undefined>>(client
 type PlausibleProviderProps = ParentProps & Partial<PlausibleOptions>;
 
 /**
+ * Wrap around your page to provide pageview tracking
  *
- * @param props
- * @returns
+ * @param props https://github.com/Barbapapazes/plausible-tracker/blob/4dde4fa4b70c16fdf4df98825e5fd32f6b659d16/src/types.ts#L20
  */
 export const PlausibleProvider: Component<PlausibleProviderProps> = (props: PlausibleProviderProps) => {
   const listeners: (() => void)[] = [];
