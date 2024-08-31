@@ -1,0 +1,16 @@
+{
+	"type": "module",
+	"name": "@strootje/solid-plausible",
+	"license": "MPL-2.0",
+	"version": "0.1.0",
+	"dependencies": {
+		"@barbapapazes/plausible-tracker": "^0.5.2"
+	},
+	"peerDependencies": {
+		"solid-js": "^1.8.22"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.8.3",
+		"@strootje/biomejs": "npm:@jsr/strootje__biomejs@^1.0.2"
+	}
+}

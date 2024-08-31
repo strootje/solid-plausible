@@ -1,0 +1,13 @@
+{
+   "name": "@strootje/solid-plausible",
+   "version": "0.1.0",
+   "license": "MPL-2.0",
+   "exports": "./mod.ts",
+   "unstable": [
+      "byonm"
+   ],
+   "compilerOptions": {
+      "jsx": "preserve",
+      "jsxImportSource": "solid-js"
+   }
+}
