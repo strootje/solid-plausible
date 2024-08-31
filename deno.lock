@@ -3,7 +3,8 @@
   "packages": {
     "specifiers": {
       "npm:@barbapapazes/plausible-tracker@^0.5.2": "npm:@barbapapazes/plausible-tracker@0.5.2",
-      "npm:solid-js@1.8.22": "npm:solid-js@1.8.22_seroval@1.1.1"
+      "npm:solid-js@1.8.22": "npm:solid-js@1.8.22_seroval@1.1.1",
+      "npm:solid-js@^1.8.22": "npm:solid-js@1.8.22_seroval@1.1.1"
     },
     "npm": {
       "@barbapapazes/plausible-tracker@0.5.2": {
