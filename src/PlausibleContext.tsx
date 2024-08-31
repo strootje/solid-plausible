@@ -1,7 +1,7 @@
 import { type PlausibleOptions, createPlausibleTracker } from "@barbapapazes/plausible-tracker";
 import { useAutoOutboundTracking } from "@barbapapazes/plausible-tracker/extensions/auto-outbound-tracking";
 import { useAutoPageviews } from "@barbapapazes/plausible-tracker/extensions/auto-pageviews";
-import { type Accessor, type ParentProps, createContext, createEffect, createSignal, onCleanup } from "solid-js";
+import { type Accessor, type Component, type ParentProps, createContext, createEffect, createSignal, onCleanup } from "solid-js";
 import { isServer } from "solid-js/web";
 
 type ContextType = ReturnType<typeof createPlausibleTracker>;
@@ -10,7 +10,7 @@ const [client, setClient] = createSignal<ContextType>();
 const PlausibleContext = createContext<Accessor<ContextType | undefined>>(client);
 
 type PlausibleProviderProps = ParentProps & Partial<PlausibleOptions>;
-export const PlausibleProvider = (props: PlausibleProviderProps) => {
+export const PlausibleProvider: Component<PlausibleProviderProps> = (props: PlausibleProviderProps) => {
   const listeners: (() => void)[] = [];
   const { children, ...opts } = props;
 
