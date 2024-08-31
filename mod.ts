@@ -1,1 +1,1 @@
-export * from './src/PlausibleContext.tsx';
+export * from "./src/PlausibleContext";
