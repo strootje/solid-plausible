@@ -10,8 +10,8 @@ devDependencies:
     specifier: ^1.8.3
     version: 1.8.3
   '@strootje/biomejs':
-    specifier: npm:@jsr/strootje__biomejs@^1.0.2
-    version: /@jsr/strootje__biomejs@1.0.2
+    specifier: npm:@jsr/strootje__biomejs@^1.0.3
+    version: /@jsr/strootje__biomejs@1.0.3
   solid-js:
     specifier: ^1.8.22
     version: 1.8.22
@@ -110,8 +110,8 @@ packages:
     dev: true
     optional: true
 
-  /@jsr/strootje__biomejs@1.0.2:
-    resolution: {integrity: sha512-RRuS5mi4ZltnzkHEW4WCOaDVwAbcL0Q7aGWoTze9hAkSRx5fIDTh1mAvrPkU2avM9Rczd7SK55kMd7cM5z/jeQ==, tarball: https://npm.jsr.io/~/11/@jsr/strootje__biomejs/1.0.2.tgz}
+  /@jsr/strootje__biomejs@1.0.3:
+    resolution: {integrity: sha512-JYdFE7GbOhmhH0+/WDQTNfQfHEfMgAiXtBg4D+qOcGD+mBg3AM6ZMAQU0LGgyIlIosMhYa6/gE5xD5bgsYTpsA==, tarball: https://npm.jsr.io/~/11/@jsr/strootje__biomejs/1.0.3.tgz}
     dev: true
 
   /csstype@3.1.3:

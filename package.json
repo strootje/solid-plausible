@@ -2,7 +2,7 @@
   "type": "module",
   "name": "@strootje/solid-plausible",
   "license": "MPL-2.0",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "exports": "./mod.ts",
   "packageManager": "pnpm@8.3.1",
   "dependencies": {
@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
-    "@strootje/biomejs": "npm:@jsr/strootje__biomejs@^1.0.2",
+    "@strootje/biomejs": "npm:@jsr/strootje__biomejs@^1.0.3",
     "solid-js": "^1.8.22"
   }
 }
