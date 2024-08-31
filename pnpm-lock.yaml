@@ -4,9 +4,6 @@ dependencies:
   '@barbapapazes/plausible-tracker':
     specifier: ^0.5.2
     version: 0.5.2
-  solid-js:
-    specifier: ^1.8.22
-    version: 1.8.22
 
 devDependencies:
   '@biomejs/biome':
@@ -15,6 +12,9 @@ devDependencies:
   '@strootje/biomejs':
     specifier: npm:@jsr/strootje__biomejs@^1.0.2
     version: /@jsr/strootje__biomejs@1.0.2
+  solid-js:
+    specifier: ^1.8.22
+    version: 1.8.22
 
 packages:
 
@@ -116,7 +116,7 @@ packages:
 
   /csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
-    dev: false
+    dev: true
 
   /seroval-plugins@1.1.1(seroval@1.1.1):
     resolution: {integrity: sha512-qNSy1+nUj7hsCOon7AO4wdAIo9P0jrzAMp18XhiOzA6/uO5TKtP7ScozVJ8T293oRIvi5wyCHSM4TrJo/c/GJA==}
@@ -125,12 +125,12 @@ packages:
       seroval: ^1.0
     dependencies:
       seroval: 1.1.1
-    dev: false
+    dev: true
 
   /seroval@1.1.1:
     resolution: {integrity: sha512-rqEO6FZk8mv7Hyv4UCj3FD3b6Waqft605TLfsCe/BiaylRpyyMC0b+uA5TJKawX3KzMrdi3wsLbCaLplrQmBvQ==}
     engines: {node: '>=10'}
-    dev: false
+    dev: true
 
   /solid-js@1.8.22:
     resolution: {integrity: sha512-VBzN5j+9Y4rqIKEnK301aBk+S7fvFSTs9ljg+YEdFxjNjH0hkjXPiQRcws9tE5fUzMznSS6KToL5hwMfHDgpLA==}
@@ -138,4 +138,4 @@ packages:
       csstype: 3.1.3
       seroval: 1.1.1
       seroval-plugins: 1.1.1(seroval@1.1.1)
-    dev: false
+    dev: true
