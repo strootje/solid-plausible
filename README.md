@@ -1,6 +1,6 @@
-# Biome Config
+# Solid Plausible
 
-Shared [Biome](https://biomejs.dev/) linting/formatting configuration.
+Plausible provider for your [SolidJS](https://solidjs.com) app.
 
 - [Usage](#usage)
 - [License](#license)
@@ -11,15 +11,6 @@ Install with [pnpm](https://pnpm.io/) (`solid-js` should be installed as a dev d
 
 ```sh
 pnpx jsr add -D @strootje/solid-plausible
-```
-
-Add this to your `biome.json` file:
-
-```json
-{
-  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
-  "extends": ["@strootje/biomejs/strict"]
-}
 ```
 
 ## License
