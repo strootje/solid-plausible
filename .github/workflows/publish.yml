@@ -14,5 +14,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
 
-      - run: npx jsr publish
+      - run: pnpm i
+      - run: pnpx jsr publish
