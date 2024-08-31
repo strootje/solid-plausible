@@ -4,6 +4,7 @@
   "license": "MPL-2.0",
   "version": "0.1.0",
   "exports": "./mod.ts",
+  "packageManager": "pnpm@8.3.1",
   "dependencies": {
     "@barbapapazes/plausible-tracker": "^0.5.2",
     "solid-js": "^1.8.22"
