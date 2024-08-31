@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
-    "@strootje/biomejs": "npm:@jsr/strootje__biomejs@^1.0.2"
+    "@strootje/biomejs": "npm:@jsr/strootje__biomejs@^1.0.2",
+    "solid-js": "^1.8.22"
   }
 }
