@@ -10,6 +10,12 @@ const [client, setClient] = createSignal<ContextType>();
 const PlausibleContext = createContext<Accessor<ContextType | undefined>>(client);
 
 type PlausibleProviderProps = ParentProps & Partial<PlausibleOptions>;
+
+/**
+ *
+ * @param props
+ * @returns
+ */
 export const PlausibleProvider: Component<PlausibleProviderProps> = (props: PlausibleProviderProps) => {
   const listeners: (() => void)[] = [];
   const { children, ...opts } = props;

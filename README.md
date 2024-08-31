@@ -2,6 +2,9 @@
 
 Plausible provider for your [SolidJS](https://solidjs.com) app.
 
+> All credit should go to [barbapapazes](https://github.com/barbapapazes)
+> for making this [plausible-tracker](https://github.com/barbapapazes/plausible-tracker)
+
 - [Usage](#usage)
 - [License](#license)
 
@@ -11,6 +14,18 @@ Install with [pnpm](https://pnpm.io/) (`solid-js` should be installed as a dev d
 
 ```sh
 pnpx jsr add -D @strootje/solid-plausible
+```
+
+Add the `PlausibleProvider` to your app component:
+
+```tsx
+export default function App() {
+	return (
+		<PlausibleProvider>
+         // ...
+		</PlausibleProvider>
+	);
+}
 ```
 
 ## License
