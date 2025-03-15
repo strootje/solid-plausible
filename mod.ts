@@ -1,12 +1,14 @@
 import {
   createPlausibleTracker,
+  type EventName,
   type EventOptions,
-  type Plausible,
+  type Plausible as PlausibleType,
   type PlausibleOptions,
 } from "@barbapapazes/plausible-tracker";
 import { useAutoOutboundTracking as _useAutoOutboundTracking } from "@barbapapazes/plausible-tracker/extensions/auto-outbound-tracking";
 import { useAutoPageviews as _useAutoPageviews } from "@barbapapazes/plausible-tracker/extensions/auto-pageviews";
 import {
+  type Component,
   type Context,
   type ContextProviderComponent,
   createContext,
@@ -19,26 +21,22 @@ const PlausibleContext: Context<Partial<PlausibleOptions> | undefined> =
   createContext<
     Partial<PlausibleOptions>
   >();
-export const PlausibleProvider: ContextProviderComponent<
-  Partial<PlausibleOptions>
-> = PlausibleContext.Provider;
 
-let plausible: Plausible;
+let plausible: PlausibleType;
 const usePlausible = () =>
   plausible ??= createPlausibleTracker(useContext(PlausibleContext));
 
 export const useTrackEvent = (
-  args: Parameters<typeof plausible.trackEvent>,
+  name: EventName,
+  opts?: Partial<EventOptions>,
 ) => {
   if (isServer) return;
-  usePlausible().trackEvent(...args);
+  usePlausible().trackEvent(name, opts);
 };
 
-export const useTrackPageview = (
-  args: Parameters<typeof plausible.trackPageview>,
-) => {
+export const useTrackPageview = (args?: Partial<EventOptions>) => {
   if (isServer) return;
-  usePlausible().trackPageview(...args);
+  usePlausible().trackPageview(args);
 };
 
 export const useAutoOutboundTracking = (opts?: EventOptions) => {
@@ -52,7 +50,7 @@ export const useAutoOutboundTracking = (opts?: EventOptions) => {
   }
 };
 
-export const useAutoPageviews = (opts?: EventOptions) => {
+export const useAutoPageviewTracking = (opts?: EventOptions) => {
   if (isServer) return;
   const { cleanup, install } = _useAutoPageviews(usePlausible(), opts);
 
@@ -61,4 +59,33 @@ export const useAutoPageviews = (opts?: EventOptions) => {
   } finally {
     onCleanup(cleanup);
   }
+};
+
+type PlausibleStruct = {
+  Provider: ContextProviderComponent<Partial<PlausibleOptions>>;
+  TrackEvent: Component<{ name: EventName } & Partial<EventOptions>>;
+  TrackPageview: Component<Partial<EventOptions>>;
+  AutoOutboundTracking: Component<Partial<EventOptions>>;
+  AutoPageviewTracking: Component<Partial<EventOptions>>;
+};
+export const Plausible: PlausibleStruct = {
+  Provider: PlausibleContext.Provider,
+  TrackEvent: (
+    { name, ...opts }: { name: EventName } & Partial<EventOptions>,
+  ) => {
+    useTrackEvent(name, opts);
+    return null;
+  },
+  TrackPageview: (opts?: Partial<EventOptions>) => {
+    useTrackPageview(opts);
+    return null;
+  },
+  AutoOutboundTracking: (opts?: Partial<EventOptions>) => {
+    useAutoOutboundTracking(opts);
+    return null;
+  },
+  AutoPageviewTracking: (opts?: Partial<EventOptions>) => {
+    useAutoPageviewTracking(opts);
+    return null;
+  },
 };
