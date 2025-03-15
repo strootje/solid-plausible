@@ -16,9 +16,10 @@ Add the `PlausibleProvider` to your app component:
 ```tsx
 export default function App() {
   return (
-    <PlausibleProvider>
-      // ...
-    </PlausibleProvider>
+    <Plausible.Provider value={{/* ... */}}>
+      <Plausible.AutoOutboundTracking />
+      <Plausible.AutoPageviewTracking />
+    </Plausible.Provider>
   );
 }
 ```
