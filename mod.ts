@@ -5,8 +5,12 @@ import {
   type Plausible as PlausibleType,
   type PlausibleOptions,
 } from "@barbapapazes/plausible-tracker";
-import { useAutoOutboundTracking as _useAutoOutboundTracking } from "@barbapapazes/plausible-tracker/extensions/auto-outbound-tracking";
-import { useAutoPageviews as _useAutoPageviews } from "@barbapapazes/plausible-tracker/extensions/auto-pageviews";
+import {
+  defaultFileTypes,
+  useAutoFileDownloadsTracking as _useAutoFileDownloadsTracking,
+  useAutoOutboundTracking as _useAutoOutboundTracking,
+  useAutoPageviews as _useAutoPageviews,
+} from "@barbapapazes/plausible-tracker/extensions";
 import {
   type Component,
   type Context,
@@ -34,9 +38,25 @@ export const useTrackEvent = (
   usePlausible().trackEvent(name, opts);
 };
 
-export const useTrackPageview = (args?: Partial<EventOptions>) => {
+export const useTrackPageview = (opts?: Partial<EventOptions>) => {
   if (isServer) return;
-  usePlausible().trackPageview(args);
+  usePlausible().trackPageview(opts);
+};
+
+export const useAutoFileDownloadsTracking = (
+  opts?: Partial<EventOptions>,
+  fileTypes: string[] = defaultFileTypes,
+) => {
+  if (isServer) return;
+  const { cleanup, install } = _useAutoFileDownloadsTracking(usePlausible(), {
+    fileTypes,
+  }, opts);
+
+  try {
+    install();
+  } finally {
+    onCleanup(cleanup);
+  }
 };
 
 export const useAutoOutboundTracking = (opts?: EventOptions) => {
@@ -65,6 +85,9 @@ type PlausibleStruct = {
   Provider: ContextProviderComponent<Partial<PlausibleOptions>>;
   TrackEvent: Component<{ name: EventName } & Partial<EventOptions>>;
   TrackPageview: Component<Partial<EventOptions>>;
+  AutoFileDownloadsTracking: Component<
+    { fileTypes: string[] } & Partial<EventOptions>
+  >;
   AutoOutboundTracking: Component<Partial<EventOptions>>;
   AutoPageviewTracking: Component<Partial<EventOptions>>;
 };
@@ -78,6 +101,12 @@ export const Plausible: PlausibleStruct = {
   },
   TrackPageview: (opts?: Partial<EventOptions>) => {
     useTrackPageview(opts);
+    return null;
+  },
+  AutoFileDownloadsTracking: (
+    { fileTypes, ...opts }: { fileTypes: string[] } & Partial<EventOptions>,
+  ) => {
+    useAutoFileDownloadsTracking(opts, fileTypes);
     return null;
   },
   AutoOutboundTracking: (opts?: Partial<EventOptions>) => {
