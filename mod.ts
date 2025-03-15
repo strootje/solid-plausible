@@ -6,15 +6,18 @@ import {
 } from "@barbapapazes/plausible-tracker";
 import { useAutoOutboundTracking as _useAutoOutboundTracking } from "@barbapapazes/plausible-tracker/extensions/auto-outbound-tracking";
 import { useAutoPageviews as _useAutoPageviews } from "@barbapapazes/plausible-tracker/extensions/auto-pageviews";
-import { createContext, onCleanup, useContext } from "solid-js";
+import { type Context, createContext, onCleanup, useContext } from "solid-js";
 import { isServer } from "solid-js/web";
 
-const Context = createContext<Partial<PlausibleOptions>>();
-export const PlausibleProvider = Context.Provider;
+const PlausibleContext: Context<Partial<PlausibleOptions> | undefined> =
+  createContext<
+    Partial<PlausibleOptions>
+  >();
+export const PlausibleProvider = PlausibleContext.Provider;
 
 let plausible: Plausible;
 const usePlausible = () =>
-  plausible ??= createPlausibleTracker(useContext(Context));
+  plausible ??= createPlausibleTracker(useContext(PlausibleContext));
 
 export const useTrackEvent = (
   args: Parameters<typeof plausible.trackEvent>,
