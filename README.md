@@ -17,6 +17,7 @@ Add the `PlausibleProvider` to your app component:
 export default function App() {
   return (
     <Plausible.Provider value={{/* ... */}}>
+      <Plausible.AutoFileDownloadsTracking />
       <Plausible.AutoOutboundTracking />
       <Plausible.AutoPageviewTracking />
     </Plausible.Provider>
