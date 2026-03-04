@@ -5,27 +5,19 @@
 
 Plausible provider for your [SolidJS](https://solidjs.com) app.
 
-All credit should go to [barbapapazes](https://github.com/barbapapazes) for
-updating the
+All credit should go to [barbapapazes](https://github.com/barbapapazes) for updating the
 [plausible-tracker](https://github.com/barbapapazes/plausible-tracker)
 
 ## Usage
 
-Add the `PlausibleProvider` to your app component:
+Add the `Plausible.Init` to your app component:
 
 ```tsx
 export default function App() {
-  return (
-    <Plausible.Provider value={{/* ... */}}>
-      <Plausible.AutoFileDownloadsTracking />
-      <Plausible.AutoOutboundTracking />
-      <Plausible.AutoPageviewTracking />
-    </Plausible.Provider>
-  );
+  return <Plausible.Init />;
 }
 ```
 
 ## License
 
-Licensed under the [MPL-2.0](LICENSE) license.<br/> Copyright &copy; 2024,
-Bastiaan Stroosnijder
+Licensed under the [MPL-2.0](LICENSE) license.<br/> Copyright &copy; 2024, Bastiaan Stroosnijder
